@@ -1,7 +1,7 @@
 var test = "test";
 
 function myTest(test) {
-	var test = "test2";
+	test = "test2";
 }
 
 test = myTest(test);
