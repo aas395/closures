@@ -4,12 +4,12 @@
 	app.controller('TestCtrl', ['$scope', function($scope) {
 
 		$scope.people = [
-			{firstName: 'Lisa', lastName: 'Wells'},
-			{firstName: 'Sheri', lastName: 'Grossman'},
-			{firstName: 'Thomas', lastName: 'Lutazi'},
-			{firstName: 'Michael', lastName: 'Trollan'},
-			{firstName: 'Ben', lastName: 'Sayeg'},
-			{firstName: 'Alisha', lastName: 'Kassam'}
+			{firstName: 'Lisa', lastName: 'Wells', likes: 0},
+			{firstName: 'Sheri', lastName: 'Grossman', likes: 0},
+			{firstName: 'Thomas', lastName: 'Lutazi', likes: 0},
+			{firstName: 'Michael', lastName: 'Trollan', likes: 0},
+			{firstName: 'Ben', lastName: 'Sayeg', likes: 0},
+			{firstName: 'Alisha', lastName: 'Kassam', likes: 0}
 		];
 
 		$scope.person = {
@@ -27,10 +27,25 @@
 			$scope.person.lastName = '';
 		};
 
-		$scope.removePerson = function(person) {
-			var index = $scope.people.indexOf(person);
+		$scope.removePerson = function() {
+			var index = $scope.people.indexOf(this.person);
 			$scope.people.splice(index, 1);
 		};
-		
+
+		$scope.addLike = function() {
+			this.person.likes++;
+		};
+
+		// a user should be able to click a button that
+		// will store up and down votes
+
+		//add an upvote counter and button
+			//add html for up counts
+			//add upvote button
+
+			//add handlers for up vote clicks
+			//add model for up votes
+			
+
 	}]);
 })();

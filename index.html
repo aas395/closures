@@ -12,7 +12,7 @@
 		<h1>{{ "Hello" + " " + person.firstName + " " + person.lastName + "!" }}</h1>
 
 		<div ui-sortable ng-model="people">
-			<div class="name" ng-repeat="person in people" >{{person.firstName + " " + person.lastName}} | <a ng-click="removePerson(person)">remove</a></div>
+			<div class="name" ng-repeat="person in people | orderBy: '-likes'">{{person.firstName + " " + person.lastName}} | Likes: {{person.likes}} | <button ng-click="addLike()">Like!</button> | <a ng-click="removePerson()">remove</a></div>
 		</div>
 <!-- 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
