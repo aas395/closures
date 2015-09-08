@@ -1,0 +1,36 @@
+<html ng-app>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<div>
+			<input type="text" id="person-name" name="name">
+		</div>
+		<h1>Hello <span id="name">You</span>!</h1>
+
+		<div id="people">
+			
+		</div>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+		var people=[{name: 'Lisa'},{name: 'Sheri'},{name: 'Thomas'}, {name: 'Michael'}];
+		</script>
+
+		<script>
+		var markup = '';
+		for(var i=0; i< people.length; i++) {
+			markup += '<div class="name">' + people[i].name + '</div>'
+		}
+		$('#people').html(markup);
+
+		$('#person-name').keypress(function(){
+			setTimeout(function(){
+				$('#name').text($('#person-name').val());	
+			})
+			
+		});
+
+		</script>
+	</body>
+</html>

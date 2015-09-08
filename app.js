@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('testApp', []);
+	var app = angular.module('testApp', ['ui.sortable']);
 
 	app.controller('TestCtrl', ['$scope', function($scope) {
 
@@ -13,7 +13,24 @@
 		];
 
 		$scope.person = {
-			name: 'You'
+			firstName: '',
+			lastName: ''
 		};
+
+		$scope.addPerson = function() {
+			$scope.people.push({
+				firstName: $scope.person.firstName,
+				lastName: $scope.person.lastName
+			});
+
+			$scope.person.firstName = '';
+			$scope.person.lastName = '';
+		};
+
+		$scope.removePerson = function(person) {
+			var index = $scope.people.indexOf(person);
+			$scope.people.splice(index, 1);
+		};
+		
 	}]);
 })();

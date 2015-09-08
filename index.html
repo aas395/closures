@@ -3,16 +3,22 @@
 		<link rel="stylesheet" href="css/bootstrap.css" />
 	</head>
 	<body ng-controller="TestCtrl">
-		<div>
-			<input type="text" ng-model="person.name">
-		</div>
+		<form novalidate ng-submit="addPerson()">
+			<input type="text" ng-model="person.firstName"/>
+			<input type="text" ng-model="person.lastName"/>
+			<button>Add Me!</button>
+		</form>
+		<input type="text" ng-model="nameQuery" />
 		<h1>{{ "Hello" + " " + person.firstName + " " + person.lastName + "!" }}</h1>
 
-		<div ng-repeat="person in people | orderBy : '-name'">
-			<div class="name">{{person.firstName + " " + person.lastName}}</div>
+		<div ui-sortable ng-model="people">
+			<div class="name" ng-repeat="person in people" >{{person.firstName + " " + person.lastName}} | <a ng-click="removePerson(person)">remove</a></div>
 		</div>
-
+<!-- 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+ -->		
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.2,angular.ui-sortable"></script>
+
 
 		<script type="text/javascript" src="app.js"></script>
 	</body>
